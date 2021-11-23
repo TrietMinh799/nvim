@@ -1,6 +1,8 @@
 local lspconfig = require'lspconfig'
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -107,7 +109,7 @@ lspconfig.tsserver.setup{
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
-  end,  
+  end,
   flags = {
       debounce_text_changes = 150,
   },
@@ -168,7 +170,23 @@ lspconfig.jsonls.setup{
   capabilities = capabilities
 }
 
-	lspconfig.tailwindcss.setup{
+lspconfig.vuels.setup{
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150
+  },
+  capabilities = capabilities,
+  init_options = {
+    useWorkspaceDependencies = false,
+    vetur = {
+      completion = {
+        autoImport = true,
+      }
+    }
+  }
+}
+
+lspconfig.clangd.setup{
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150
@@ -176,3 +194,21 @@ lspconfig.jsonls.setup{
   capabilities = capabilities
 }
 
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfiglua')
+
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    -- This sets the spacing and the prefix, obviously.
+    virtual_text = {
+      spacing = 4,
+      prefix = ''
+    }
+  }
+)

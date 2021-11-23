@@ -33,6 +33,8 @@ local lspkind = require'lspkind'
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
+      { name = 'path' },
+      {name = 'cmp_tabnine'}
     })
   })
 
@@ -52,3 +54,11 @@ local lspkind = require'lspkind'
     })
   })
 
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+        max_lines = 1000;
+        max_num_results = 20;
+        sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
+})

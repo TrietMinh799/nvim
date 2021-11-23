@@ -10,8 +10,8 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'onsails/lspkind-nvim'
-Plug 'tami5/lspsaga.nvim'
-Plug 'ishan9299/nvim-solarized-lua'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'yashguptaz/calvera-dark.nvim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -24,6 +24,8 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51'}
+Plug 'lewis6991/impatient.nvim'
 
 call plug#end()
 
@@ -53,8 +55,10 @@ set termguicolors
 set background=dark
 set updatetime=300
 set signcolumn=number
+set splitbelow
+set splitright
 
-colorscheme solarized
+colorscheme calvera
 
 nnoremap <C-c> <cmd>CHADopen<cr>
 nnoremap <space>ff <cmd>Telescope find_files<cr>
@@ -67,10 +71,26 @@ nnoremap <silent>rn :Lspsaga rename<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 nnoremap <silent> <space>cd :Lspsaga show_line_diagnostics<CR>
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Expand or jump
+imap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+let g:calvera_italic_comments = 1
+let g:calvera_italic_keywords = 1
+let g:calvera_italic_functions = 1
+let g:calvera_contrast = 1
 
 lua << EOF
 
 vim.g.did_load_filetypes = 1
+
+require('impatient')
+
 require'colorizer'.setup()
 
 require('lspconfigrc')

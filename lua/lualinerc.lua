@@ -1,8 +1,7 @@
 require'lualine'.setup{
-
   options = {
     icons_enabled = true,
-    theme = 'solarized',
+    theme = 'calvera-nvim',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },
