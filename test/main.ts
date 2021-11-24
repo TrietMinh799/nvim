@@ -1,5 +1,5 @@
-function getUser(param: string) {
-  console.log(param.toLowerCase())
+function getUser(nameUser: string, index: number) {
+  return nameUser.trim().charAt(index);
 }
 
-getUser("triet")
+getUser("triet", 2);

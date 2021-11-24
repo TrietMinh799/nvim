@@ -10,7 +10,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'onsails/lspkind-nvim'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'yashguptaz/calvera-dark.nvim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'windwp/nvim-autopairs'
@@ -93,11 +92,6 @@ require('impatient')
 
 require'colorizer'.setup()
 
-require('lspconfigrc')
-require('autopairsrc')
-require('treesitterc')
-require('lualinerc')
-require('lspsagarc')
-require('cmprc')
+require('init')
 
 EOF
