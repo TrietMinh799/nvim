@@ -103,6 +103,17 @@ lspconfig.tsserver.setup{
 
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
+        
+        require'lsp_signature'.on_attach({
+          bind = true,
+          handler_opts = {
+            border = 'rounded'
+          },
+          hint_enable = false,
+          use_lspsaga = true
+        }, bufnr)
+
+
 
         -- no default maps, so you may want to define some here
         local opts = { silent = true }
