@@ -2,7 +2,7 @@
 require'lualine'.setup{
   options = {
     icons_enabled = true,
-    theme = 'calvera-nvim',
+    theme = 'dracula',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },

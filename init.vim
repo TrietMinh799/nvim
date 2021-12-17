@@ -10,7 +10,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'onsails/lspkind-nvim'
-Plug 'yashguptaz/calvera-dark.nvim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -24,6 +23,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tami5/lspsaga.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'mhartington/formatter.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -58,7 +58,7 @@ set signcolumn=number
 set splitbelow
 set splitright
 
-colorscheme calvera
+colorscheme dracula
 
 nnoremap <C-c> <cmd>CHADopen<cr>
 nnoremap <space>ff <cmd>Telescope find_files<cr>
@@ -79,12 +79,6 @@ nnoremap <C-H> <C-W><C-H>
 " Expand or jump
 imap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-let g:calvera_italic_comments = 1
-let g:calvera_italic_keywords = 1
-let g:calvera_italic_functions = 1
-let g:calvera_contrast = 1
-
 
 lua << EOF
 
