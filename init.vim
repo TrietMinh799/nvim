@@ -20,17 +20,18 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nathom/filetype.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
-Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51'}
+Plug 'tami5/lspsaga.nvim'
 Plug 'lewis6991/impatient.nvim'
+Plug 'mhartington/formatter.nvim'
 
 call plug#end()
 
 filetype plugin indent on
 syntax on
 
+set autoindent
+set smartindent
 set hidden
 set shortmess+=c
 set nowrap
@@ -83,6 +84,7 @@ let g:calvera_italic_comments = 1
 let g:calvera_italic_keywords = 1
 let g:calvera_italic_functions = 1
 let g:calvera_contrast = 1
+
 
 lua << EOF
 
