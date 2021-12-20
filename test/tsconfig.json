@@ -1,3 +1,16 @@
 {
-
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "module": "CommonJS",
+        "lib": ["DOM", "ESNext"],
+        "declaration": true,
+        "declarationDir": "dir",
+        "declarationMap": true
+    },
+    "typeAcquisition": {
+        "enable": true
+    }
 }

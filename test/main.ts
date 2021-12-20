@@ -1,5 +1,3 @@
-function getUser(nameUser: string, index: number) {
-  return nameUser.trim().charAt(index);
-}
+import { getUser } from ".";
 
-getUser("triet", 2);
+getUser('')
