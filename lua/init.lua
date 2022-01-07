@@ -1,4 +1,5 @@
 require('autopairsc')
 require('statusline')
 require('treesitterc')
-require('format')
+require('lspconfigrc')
+require('cmprc')

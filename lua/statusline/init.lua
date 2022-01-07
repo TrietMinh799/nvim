@@ -2,7 +2,7 @@
 require'lualine'.setup{
   options = {
     icons_enabled = true,
-    theme = 'dracula',
+    theme = 'codedark',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },
