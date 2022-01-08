@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -46,3 +47,18 @@ return require('packer').startup(function(use)
   use {'windwp/nvim-ts-autotag'}
 
 end)
+=======
+vim.cmd [[packadd packer.nvim]]
+
+return require('packer').startup(function()
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- Colorscheme
+  use {'tomasiser/vim-code-dark'}
+
+end)
+>>>>>>> 3857e7122c454d989804d18319c7c2ebd5e377f6
