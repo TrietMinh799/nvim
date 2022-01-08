@@ -20,7 +20,7 @@ opt.tabstop = 2                     -- Number of spaces tabs count for
 opt.termguicolors = true            -- True color support
 opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
 opt.wrap = false       vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.hidden = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+
+vim.cmd [[colorscheme codedark]]
+
+require("init")
