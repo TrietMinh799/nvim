@@ -6,8 +6,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
+-- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
@@ -115,7 +114,7 @@ nvim_lsp.diagnosticls.setup{
         args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
       },
       prettier = {
-        command = 'prettier_d_slim',
+        command = 'prettier',
         rootPatterns = { '.git' },
         -- requiredFiles: { 'prettier.config.js' },
         args = { '--stdin', '--stdin-filepath', '%filename' }
