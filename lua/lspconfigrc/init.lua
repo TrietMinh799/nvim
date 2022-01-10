@@ -42,6 +42,15 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 
+  require('lsp_signature').on_attach({
+    bind = true,
+    handlers_opts = {
+      border = "rounded"
+    },
+    hint_enable = false,
+    doc_lines = 5
+  }, bufnr)
+
 end
 
 nvim_lsp.sumneko_lua.setup {
@@ -65,15 +74,15 @@ nvim_lsp.sumneko_lua.setup {
     }
 }
 
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      jsxAttributeCompletionStyle = "auto"
+nvim_lsp.tsserver.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+      preferences = {
+        jsxAttributeCompletionStyle = "auto"
+      }
     }
   }
-}
 
 nvim_lsp.diagnosticls.setup{
   filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"},
@@ -114,7 +123,7 @@ nvim_lsp.diagnosticls.setup{
         args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
       },
       prettier = {
-        command = 'prettier',
+        command = 'prettier_d_slim',
         rootPatterns = { '.git' },
         -- requiredFiles: { 'prettier.config.js' },
         args = { '--stdin', '--stdin-filepath', '%filename' }

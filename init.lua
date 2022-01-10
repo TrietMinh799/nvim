@@ -16,4 +16,8 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.clipboard = 'unnamedplus'
 
+vim.cmd[[
+let g:coq_settings = { 'auto_start': v:true }
+]]
+
 require('init')

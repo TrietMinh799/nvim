@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -13,6 +12,12 @@ return require('packer').startup(function(use)
 
   -- LSP
   use {'neovim/nvim-lspconfig'}
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
+
+  -- Utilities
+  use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
 
   -- Completion
   use { 'hrsh7th/cmp-nvim-lsp' }
@@ -21,9 +26,9 @@ return require('packer').startup(function(use)
   use { 'hrsh7th/cmp-cmdline' }
   use { 'hrsh7th/nvim-cmp' }
 
-  -- Snippets
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'saadparwaiz1/cmp_luasnip'}
+  -- SNIPPET
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
 
   -- Tree explorer
   use {
@@ -46,19 +51,7 @@ return require('packer').startup(function(use)
   use {'windwp/nvim-autopairs'}
   use {'windwp/nvim-ts-autotag'}
 
-end)
-=======
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- Colorscheme
-  use {'tomasiser/vim-code-dark'}
+  -- Statusline
+  use {'feline-nvim/feline.nvim'}
 
 end)
->>>>>>> 3857e7122c454d989804d18319c7c2ebd5e377f6
